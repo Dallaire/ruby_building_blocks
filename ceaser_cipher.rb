@@ -1,8 +1,9 @@
 def cipher string, key
+  return "empty input" if string.empty?
   encode = string.split("")
   key%= 26
   encode.map!.each do |i|
-    if ("A"..."z").include? (i)
+    if ("A".."z").include? (i)
       ascii_value = (i.ord + key)
       if (ascii_value>122 || (ascii_value > 90 && ascii_value <(97+key)))
         ascii_value -= 26
@@ -15,4 +16,4 @@ def cipher string, key
   return encode.join
 end
 
-puts cipher("Hello how are you?", 5)
+puts cipher("xyz", 3)
